@@ -32,6 +32,7 @@ class SlidingUpPanel extends React.Component {
     allowMomentum: PropTypes.bool,
     allowDragging: PropTypes.bool,
     showBackdrop: PropTypes.bool,
+    useNativeDriver: PropTypes.bool,
     backdropOpacity: PropTypes.number,
     contentStyle: PropTypes.any,
     children: PropTypes.oneOfType([PropTypes.element, PropTypes.func]),
@@ -50,6 +51,7 @@ class SlidingUpPanel extends React.Component {
     allowMomentum: true,
     allowDragging: true,
     showBackdrop: true,
+    useNativeDriver: true,
     backdropOpacity: 0.75,
   }
 
@@ -229,6 +231,7 @@ class SlidingUpPanel extends React.Component {
     const {
       toValue,
       easing,
+      useNativeDriver,
       onAnimationEnd = () => {},
       duration = DEFAULT_SLIDING_DURATION,
     } = options
@@ -237,6 +240,7 @@ class SlidingUpPanel extends React.Component {
       duration,
       easing,
       toValue: -Math.abs(toValue),
+      useNativeDriver: useNativeDriver,
       delay: Platform.OS === 'android' ? 166.67 : undefined, // to make it looks smooth on android
     }
 
