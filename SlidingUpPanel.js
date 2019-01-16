@@ -10,11 +10,11 @@ import styles from './libs/styles'
 
 const deprecated = (condition, message) => condition && console.warn(message)
 
-const DEFAULT_MINIMUM_VELOCITY_THRESHOLD = 0.1
+const DEFAULT_MINIMUM_VELOCITY_THRESHOLD = 0.9
 
-const DEFAULT_MINIMUM_DISTANCE_THRESHOLD = 0.24
+const DEFAULT_MINIMUM_DISTANCE_THRESHOLD = 0.9
 
-const DEFAULT_SLIDING_DURATION = 240
+const DEFAULT_SLIDING_DURATION = 0
 
 class SlidingUpPanel extends React.Component {
   static propTypes = {
@@ -228,6 +228,7 @@ class SlidingUpPanel extends React.Component {
   }
 
   _triggerAnimation(options = {}) {
+    console.log('_triggerAnimation', options)
     const {
       toValue,
       easing,
@@ -240,7 +241,7 @@ class SlidingUpPanel extends React.Component {
       duration,
       easing,
       toValue: -Math.abs(toValue),
-      useNativeDriver: useNativeDriver,
+      useNativeDriver: true,
       delay: Platform.OS === 'android' ? 166.67 : undefined, // to make it looks smooth on android
     }
 
@@ -327,3 +328,4 @@ class SlidingUpPanel extends React.Component {
 }
 
 export default SlidingUpPanel
+
