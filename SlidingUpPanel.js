@@ -201,9 +201,9 @@ class SlidingUpPanel extends React.Component {
         this._backdrop.setNativeProps({ pointerEvents: 'none' })
       }
 
-      if (!this._requestCloseTriggered) {
-        this.props.onRequestClose()
-      }
+      // if (!this._requestCloseTriggered) {
+      //   this.props.onRequestClose()
+      // }
       return
     }
 
@@ -228,7 +228,6 @@ class SlidingUpPanel extends React.Component {
   }
 
   _triggerAnimation(options = {}) {
-    console.log('_triggerAnimation', options)
     const {
       toValue,
       easing,
@@ -328,4 +327,3 @@ class SlidingUpPanel extends React.Component {
 }
 
 export default SlidingUpPanel
-
