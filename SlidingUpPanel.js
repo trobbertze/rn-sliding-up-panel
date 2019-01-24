@@ -252,6 +252,7 @@ class SlidingUpPanel extends React.PureComponent {
       Animated.timing(this.props.animatedValue, {
         toValue: this._lastPosition,
         duration: KEYBOARD_TRANSITION_DURATION,
+        useDefaultDriver: true
       }).start()
     }
 
